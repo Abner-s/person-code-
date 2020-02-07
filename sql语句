@@ -1,0 +1,4 @@
+1.更改文章的发布时间，让发布时间等于输入时间
+
+
+update t_cms_core_msg_all set RELEASETIME = INSTIME  where TARGET_SITE_ID=''
