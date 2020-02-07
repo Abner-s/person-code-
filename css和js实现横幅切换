@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态轮播</title>
+    <style>
+        #wrapper {
+            width: 550px;
+            height: 300px;
+            position: relative;
+            margin: 300px auto;
+            cursor:pointer;
+        }
+        #wrapper:hover .btn{
+
+            opacity: 1;
+            transition: all 0.6s;
+        }
+        img {
+            position: absolute;
+            width: 550px;
+            height: 300px;
+            opacity:0;
+            transition: all 0.8s;
+        }
+        .btn {
+            position: absolute;
+            top: 135px;
+            background: none;
+            border: none;
+
+            opacity: 0;
+        }
+        .btn img{
+            width: 50px;
+            height: 50px;
+            opacity:0.7;
+            z-index: 100;
+        }
+        #btnLeft {
+            left: 10px;
+        }
+        #btnRight {
+            right:60px;
+        }
+        .pic.active{
+            z-index: 100;
+            opacity: 1;
+        }
+        .point {
+            list-style: none;
+            position: absolute;
+            right: 20px;
+            bottom: 15px;
+            z-index: 300;
+            margin-bottom: 0;
+        }
+        .pot {
+            margin-left: 12px;
+            width: 8px;
+            height: 8px;
+            border: 2px solid rgba(255,255,255,0.8);
+            float: left;
+            border-radius: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .pot.active {
+           background-color: rgba(243,149,176,1);
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <img src="http://www.lyg.gov.cn/zglygzfmhwz/upload/lygyq.png" alt="" class="pic active">
+        <img src="http://www.lyg.gov.cn/zglygzfmhwz/upload/shzyhxjzg.gif" alt="" class="pic">
+        <img src="img/3.jpg" alt="" class="pic">
+        <img src="img/4.jpg" alt="" class="pic">
+        <ul class="point">
+            <li class="pot active" arr="1"></li>
+            <li class="pot" arr="2"></li>
+            <li class="pot" arr="3"></li>
+            <li class="pot" arr="4"></li>
+        </ul>
+        <buttom class="btn" id="btnLeft"><img src="img/a1.png" alt=""></buttom>
+        <buttom class="btn" id="btnRight"><img src="img/a2.png" alt=""></buttom>
+    </div>
+let pics = document.getElementsByClassName('pic');
+let btnL = document.getElementById('btnLeft');
+let btnR = document.getElementById('btnRight');
+let points = document.getElementsByClassName('pot');
+let swiper = document.getElementById('wrapper');
+let index = 0;
+let time = null;
+let clearPics = ()=> {
+    for (let i =0; i<pics.length; i++){
+        pics[i].className = "pic"
+    }
+    for (let i =0; i<points.length; i++){
+        points[i].className = "pot"
+    }
+};
+let update = ()=> {
+    clearPics();
+    pics[index].className = "pic active";
+    points[index].className = "pot active";
+};
+let btnNext = ()=> {
+  index ++;
+  if(index === 4){
+      index = 0;
+  }
+  update();
+};
+let btnText = ()=> {
+    if (index === 0){
+        index = 3
+    }else {
+        index --;
+    }
+    update();
+};
+time=setInterval( ()=> {
+    btnNext();
+},1000);
+swiper.onmouseover =  ()=> {
+    clearInterval(time);
+};
+swiper.onmouseout = ()=> {
+    time=setInterval( ()=> {
+        btnNext();
+    },1000);
+};
+btnR.addEventListener('click', ()=> {
+    btnNext();
+});
+btnL.addEventListener('click',()=> {
+    btnText();
+});
+for (let i=0; i<points.length; i++){
+    points[i].addEventListener('click', function() {
+        let opt = this.getAttribute('arr');
+        index = opt-1;
+        update();
+    })
+}
+</body>
+<script>
+let pics = document.getElementsByClassName('pic');
+let btnL = document.getElementById('btnLeft');
+let btnR = document.getElementById('btnRight');
+let points = document.getElementsByClassName('pot');
+let swiper = document.getElementById('wrapper');
+let index = 0;
+let time = null;
+let clearPics = ()=> {
+    for (let i =0; i<pics.length; i++){
+        pics[i].className = "pic"
+    }
+    for (let i =0; i<points.length; i++){
+        points[i].className = "pot"
+    }
+};
+let update = ()=> {
+    clearPics();
+    pics[index].className = "pic active";
+    points[index].className = "pot active";
+};
+let btnNext = ()=> {
+  index ++;
+  if(index === 4){
+      index = 0;
+  }
+  update();
+};
+let btnText = ()=> {
+    if (index === 0){
+        index = 3
+    }else {
+        index --;
+    }
+    update();
+};
+time=setInterval( ()=> {
+    btnNext();
+},1000);
+swiper.onmouseover =  ()=> {
+    clearInterval(time);
+};
+swiper.onmouseout = ()=> {
+    time=setInterval( ()=> {
+        btnNext();
+    },1000);
+};
+btnR.addEventListener('click', ()=> {
+    btnNext();
+});
+btnL.addEventListener('click',()=> {
+    btnText();
+});
+for (let i=0; i<points.length; i++){
+    points[i].addEventListener('click', function() {
+        let opt = this.getAttribute('arr');
+        index = opt-1;
+        update();
+    })
+}
+
+
+
+
+</script>
+</html>
