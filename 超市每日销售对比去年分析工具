@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>沃尔玛同比销售计算</title>
+    <style>
+        .bar {
+            background: green;
+            width: 100%;
+            height: 40px;
+            margin: 0px;
+            padding: 0.5%;
+
+
+        }
+
+        .title {
+            color: white;
+            font-size: 28px;
+
+        }
+
+
+        .heng {
+            background: green;
+            color: green;
+
+        }
+
+        .xiabian {
+            display: block;
+            width: 100%;
+            height: auto;
+
+
+
+        }
+
+        #neirong {
+
+            width: 50%;
+        }
+
+        span {
+            display: inline-block;
+
+            margin: 10px;
+            width: auto;
+    </style>
+</head>
+
+<body>
+    <div class="bar">
+        <span class="heng">111</span>
+
+        <span class="title">常用工具/销售同比计算</span>
+
+
+    </div>
+
+    <div class="xiabian">
+        <span id="neirong">
+
+            <p>去年同期销售：<input type="text" id="lastyear" > </p>
+            <p>今年销售：<input type="text"  id="now" > </p>
+
+
+            <p>80部门去年同期销售：<input type="text" id="80lastyear" > </p>
+            <p>80部门今年年销售：<input type="text"  id="80now" > </p>
+
+            <p>81部门去年同期销售：<input type="text" id="81lastyear" > </p>
+            <p>81部门今年销售：<input type="text" id="81now" > </p>
+
+            <p>83部门去年同期销售：<input type="text" id="83lastyear" > </p>
+            <p>83部门今年销售：<input type="text" id="83now" > </p>
+
+            <p>93部门去年同期销售：<input type="text" id="93lastyear" > </p>
+            <p>93部门今年销售：<input type="text" id="93now" > </p>
+
+            <p>94部门去年同期销售：<input type="text" id="94lastyear" > </p>
+            <p>94部门今年销售：<input type="text" id="94now" > </p>
+
+            <p>98部门去年同期销售：<input type="text" id=98lastyear > </p>
+            <p>98部门今年销售：<input type="text" id="98now"  > </p>
+        </span>
+
+        <span class="button-right">
+            
+            <input type="button"  onclick="Calculation()"   value="计算输出">
+            
+            <textarea   id="wendang"   cols="30" rows="3">本工具由Abner制作完成，如需定制，可加微信：igyouxiu</textarea>
+            
+         </span>
+
+    </div>
+
+
+</body>
+<script>
+function Calculation(){
+
+    var lastyear = document.getElementById("lastyear").value;
+    var now = document.getElementById("now").value;
+
+    var lastyear80 = document.getElementById("80lastyear").value;
+    var now80 = document.getElementById("80now").value;
+    
+
+    var lastyear81 = document.getElementById("81lastyear").value;
+    var now81 = document.getElementById("81now").value;
+
+    var lastyear83 = document.getElementById("83lastyear").value;
+    var now83 = document.getElementById("83now").value;
+
+    var lastyear93 = document.getElementById("93lastyear").value;
+    var now93 = document.getElementById("93now").value;
+
+    var lastyear94 = document.getElementById("94lastyear").value;
+    var now94 = document.getElementById("94now").value;
+
+    var lastyear98 = document.getElementById("98lastyear").value;
+    var now98 = document.getElementById("98now").value;
+
+    var compare=now-lastyear;
+    comp=(now-lastyear)/lastyear*100.00 + "%";
+
+    var comp80=(now80-lastyear80)/lastyear80*100.00 + "%";
+
+    var comp81=(now81-lastyear81)/lastyear81*100.00 + "%";
+
+    var comp83=(now83-lastyear83)/lastyear83*100.00 + "%";
+
+    var comp93=(now93-lastyear93)/lastyear93*100.00 + "%";
+
+    var comp94=(now94-lastyear94)/lastyear94*100.00 + "%";
+
+    var comp98=(now98-lastyear98)/lastyear98*100.00 + "%";
+    
+    var total="去年同期销售：" + lastyear + "元；" +"\n"+
+              "今年销售:"+ now +"元；"+"\n"+
+              "对比去年："+compare+"元；"+"\n"+
+              "COMP："+comp+";"+"\n"+
+
+              "80部门去年销售："+lastyear80+"元；"+"\n"+
+              "今年销售"+now80+"元；"+"\n"+
+              "COMP："+comp80  + ";"+"\n"+
+            
+             "81部门去年销售："+lastyear81+"元；"+"\n"+
+             "今年销售"+now81+"元；"+"\n"+
+             "COMP："+comp81+";"+"\n"+
+
+             "83部门去年销售："+lastyear83+"元；"+"\n"+
+             "今年销售"+now83+"元；"+"\n"+
+             "COMP："+comp83+";"+"\n"+
+
+             "93部门去年销售："+lastyear93+"元；"+"\n"+
+             "今年销售"+now93+"元；"+"\n"+
+             "COMP："+comp93+";"+"\n"+
+
+             "94部门去年销售："+lastyear94+"元；"+"\n"+
+             "今年销售"+now94+"元；"+"\n"+
+             "COMP："+comp94+";"+"\n"+
+
+             "98部门去年销售："+lastyear98+"元;"+"\n"+
+             "今年销售"+now98+"元;"+"\n"+
+             "COMP："+comp98+";"
+
+
+
+            
+    var obj = document.getElementById("wendang");
+    var obj1=document.getElementById("wendang");
+
+    obj1.rows=28;
+
+    obj.value = total;
+
+
+
+    
+    
+
+
+    
+    
+    alert("今天要加油哦");
+
+    
+
+
+
+}
+
+
+
+</script>
+
+</html>
