@@ -1,4 +1,29 @@
 1.更改文章的发布时间，让发布时间等于输入时间
 
-
 update t_cms_core_msg_all set RELEASETIME = INSTIME  where TARGET_SITE_ID=''
+
+2.数据库表空间剩余查询
+SELECT 
+  a.tablespace_name 表空间名称, 
+ total 总计, 
+    total - free 已使用, 
+    free 空闲, 
+ round((total - free) / total * 100, 2) 使用占比
+FROM (
+   SELECT tablespace_name
+        , round(SUM(bytes) / 1024 / 1024) AS total
+    FROM dba_data_files
+   GROUP BY tablespace_name
+) a
+ LEFT JOIN (
+       SELECT tablespace_name
+            , round(SUM(bytes) / 1024 / 1024) AS free
+     FROM dba_free_space
+       GROUP BY tablespace_name
+  ) b
+   ON a.tablespace_name = b.tablespace_name
+ORDER BY (total - free) / total DESC;
+
+
+
+
