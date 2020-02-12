@@ -1,3 +1,9 @@
 1.查询CPU使用率  top
 2.内存使用率：   free -h
 3.磁盘空间使用率 df -h
+4.数据库备份：
+             输入su - oracle切换到oracle用户。
+
+             然后输入expdp truecms/trueway@127.0.0.1/orcl schemas=truecms dumpfile=truecms20200203.dmp log=truecms20200203.log
+
+4.数据库备份目录   /data/oracle/admin/orcl/dpdump/truecms20200203.dmp
