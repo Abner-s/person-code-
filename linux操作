@@ -7,3 +7,24 @@
              然后输入expdp truecms/trueway@127.0.0.1/orcl schemas=truecms dumpfile=truecms20200203.dmp log=truecms20200203.log
 
 4.数据库备份目录   /data/oracle/admin/orcl/dpdump/truecms20200203.dmp
+5.apache域名配置更改
+               apache配置修改路径：/home/apache/conf/extra/http-vhosts.conf
+               web2是/home/httpd-2.4.2/conf/http.conf
+
+              修改
+              Alias /hzqhfjt "/home/webapp/tomcat-6.0.18/webapps/hzqhfjt"
+
+             修改
+
+            <Directory "/home/webapp/tomcat-6.0.18/webapps/hzqhfjt">
+                 Options -Indexes FollowSymLinks
+                 AllowOverride None
+                 Order allow,deny
+                 Allow from all
+          
+           </Directory>
+
+              修改之后之后重启apache
+                      [root@zfwzq-web4-server ~]# cd /home/apache/bin/
+                      [root@zfwzq-web4-server bin]# ./apachectl restart
+
