@@ -2,7 +2,17 @@
 
 update t_cms_core_msg_all set RELEASETIME = INSTIME  where TARGET_SITE_ID=''
 
-2.数据库表空间剩余查询
+2.replace 替换
+update T_CMS_MSG_NEWS set MSG_CONTENT = REPLACE(MSG_CONTENT , 'src="file:/', '') where  MSG_CONTENT like '%file:/%' AND rownum<=5;
+
+update T_CMS_MSG_NEWS set MSG_CONTENT = REPLACE(MSG_CONTENT , 'src="file:/', '') where  MSG_CONTENT like '%file:/%' ;
+
+
+select*from T_CMS_MSG_NEWS where MSG_CONTENT like '%file:/%' AND rownum<=5;
+
+select*from T_CMS_MSG_NEWS where  rownum<=5;
+
+3.数据库表空间剩余查询
 SELECT 
   a.tablespace_name 表空间名称, 
  total 总计, 
