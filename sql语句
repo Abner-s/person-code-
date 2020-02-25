@@ -12,7 +12,12 @@ select*from T_CMS_MSG_NEWS where MSG_CONTENT like '%file:/%' AND rownum<=5;
 
 select*from T_CMS_MSG_NEWS where  rownum<=5;
 
-3.数据库表空间剩余查询
+3.UPDATE T_CMS_MSG_NEWS SET MSG_CONTENT = replace(MSG_CONTENT,'http://zjj.jgjy.gov.cn/','/') where id in
+(select  id from T_CMS_MSG_NEWS  INNER JOIN T_CMS_CORE_MSG_ALL
+ON T_CMS_CORE_MSG_ALL.TARGET_MSG_ID = T_CMS_MSG_NEWS.ID 
+WHERE T_CMS_CORE_MSG_ALL.TARGET_SITE_ID = 'f8edd4fa-770f-43d0-b917-9d8de2190f68') 
+
+4.数据库表空间剩余查询
 SELECT 
   a.tablespace_name 表空间名称, 
  total 总计, 
