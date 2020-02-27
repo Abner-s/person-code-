@@ -28,3 +28,9 @@
                       [root@zfwzq-web4-server ~]# cd /home/apache/bin/
                       [root@zfwzq-web4-server bin]# ./apachectl restart
 
+1.启动Oracle服务
+    1. 进入su - oracle
+    2.进入sql语句sqlplus / as sysdba
+    3.启动服务startup
+    4.exit退出sql语句
+    5.lsnrctl start启动监听
