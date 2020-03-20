@@ -1,0 +1,5 @@
+1.进入/data根目录，选择tomacat-，依次进入目录，备注源文件，加入新代码
+2.进入服务器控制台 cd /data/tomcat/bin  
+                 ./shutdown.sh
+                 ./startup.sh
+                 ps:按键盘Tab键自动补齐
