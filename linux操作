@@ -36,3 +36,7 @@
     3.启动服务startup
     4.exit退出sql语句
     5.lsnrctl start启动监听
+2.删除归档日志：    su - oracle
+                   rman
+                   connect target /
+                   DELETE ARCHIVELOG FROM TIME 'SYSDATE-7';
