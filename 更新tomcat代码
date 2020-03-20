@@ -3,4 +3,7 @@
                  ./shutdown.sh
                  ps ef|grep /data/tomcat-6.01.8/bin 看一下是否有没有关闭，多余的进程，有的话，就kill-9 进程号
                  ./startup.sh
+
+
                  ps:按键盘Tab键自动补齐
+                最后 /home/tomcat-6.0.18/logs/logs
