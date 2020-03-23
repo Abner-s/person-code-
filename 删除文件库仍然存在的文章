@@ -1,0 +1,4 @@
+1.查询是否存在
+curl -XGET 'http://127.0.0.1:9200/_search?pretty' -H 'Content-Type: application/json' -d ' { "query": { "match": {"msgid" : "tjxx_30596"} } }'
+2.删除
+curl -XPOST "http://127.0.0.1:9200/zwgksymx/_delete_by_query " -H 'Content-Type: application/json' -d ' {  "query": {    "match": { "msgid": "tjxx_30596"}}}'
