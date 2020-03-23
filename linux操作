@@ -7,6 +7,7 @@
              然后输入expdp truecms/trueway@127.0.0.1/orcl schemas=truecms dumpfile=truecms20200203.dmp log=truecms20200203.log
      异地备份：
            exp truecms/trueway@172.19.200.189/orcl file=truecms20200229.dmp log=truecms20200229.log
+           然后home/oracle
 
 4.数据库备份目录   /data/oracle/admin/orcl/dpdump/truecms20200203.dmp
 5.apache域名配置更改
