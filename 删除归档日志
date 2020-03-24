@@ -1,0 +1,4 @@
+su -oracle
+rman
+connect target /
+DELETE ARCHIVELOG FROM TIME 'SYSDATE-7';
