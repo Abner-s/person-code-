@@ -1,4 +1,17 @@
 1.查询是否存在
-curl -XGET 'http://127.0.0.1:9200/_search?pretty' -H 'Content-Type: application/json' -d ' { "query": { "match": {"msgid" : "tjxx_30596"} } }'
+curl -XGET 'http://127.0.0.1:9200/_search?pretty' -H 'Content-Type: application/json' -d '
+{ "query": { "match": {"msgid" : "tjxx_30596"} } }'
 2.删除
-curl -XPOST "http://127.0.0.1:9200/zwgksymx/_delete_by_query " -H 'Content-Type: application/json' -d ' {  "query": {    "match": { "msgid": "tjxx_30596"}}}'
+curl -XPOST "http://127.0.0.1:9200/zwgksymx/_delete_by_query " -H 'Content-Type: application/json' -d ' {  "query": { 
+"match": { "msgid": "tjxx_30596"}}}'
+
+
+更新一个
+查询
+   curl -XPOST 'http://127.0.0.1:9200/md_df_001/_search '  -H 'Content-Type: application/json' -d'{    "query": { "query_string": 
+   {"default_field":"msg_title", "query":"关于转发《关于在全区推广“三上三线三先锋”活动 齐心协力全面打赢疫情防控阻击战的通知》的通知"}}}'
+   
+根据上边查询到的mgsid 删除
+
+curl -XPOST "http://127.0.0.1:9200/md_df_001/_delete_by_query " -H 'Content-Type: application/json' -d '
+{  "query": {  "match": { "msgid": "cf68a7db-cc88-406d-b758-1e9fc419d6d8"}}}'
