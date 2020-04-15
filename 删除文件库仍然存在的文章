@@ -15,3 +15,11 @@ curl -XPOST "http://127.0.0.1:9200/zwgksymx/_delete_by_query " -H 'Content-Type:
 
 curl -XPOST "http://127.0.0.1:9200/md_df_001/_delete_by_query " -H 'Content-Type: application/json' -d '
 {  "query": {  "match": { "msgid": "cf68a7db-cc88-406d-b758-1e9fc419d6d8"}}}'
+
+直接删除整个栏目的索引
+
+curl -XPOST "http://xxxxx:xxxx/news/_delete_by_query " -H 'Content-Type: application/json' -d ' { "query": { "match": {"columnid" : "aaf427ff-cb43-4354-b2b4-291eaf3191a3"} } }'
+
+
+
+
