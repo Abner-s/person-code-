@@ -39,6 +39,8 @@ FROM (
    ON a.tablespace_name = b.tablespace_name
 ORDER BY (total - free) / total DESC;
 
+select t.rowid,t.* from t_cms_open_application t 
+where person_name='柴如全' and address='常州市武进区横山桥镇蓉湖村张谭桥组';
 
 
 
